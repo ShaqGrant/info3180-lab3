@@ -20,6 +20,42 @@ def home():
     return render_template('home.html')
 
 
+@app.route('/send', method = ['POST'])
+def sendemail():
+    username = 'shaq.grant.95@gmail.com'
+    password = 'ysaervecmejltckw'
+
+    fromname = request.form['name']
+    fromemail = request.form['email']
+    fromsubject = request.form['subject']
+    msg = request.form['msg']
+    toemail = username
+    message = """From: {} <{}>
+    To: {} <{}>
+    Subject: {}
+    {}
+    """
+
+    messagetosend = message.format(
+                              fromname,
+                              fromemail,
+                              "Email Form",
+                              toemail,
+                              fromsubject,
+                              msg)
+
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    server.starttls()
+    server.login(username,password)
+    server.sendmail(fromemail,toemail,fromsubject,messagetosend)
+    server.quit()
+    return render_template('email.html', time=time_info())
+
+def time_info():
+  now = time.strftime("%a %d %b %Y")
+  return now
+
+
 @app.route('/about/')
 def about():
     """Render the website's about page."""

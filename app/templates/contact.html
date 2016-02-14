@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <title>Email</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/form.css"/>
+	<link rel="icon" href="/static/img/7.png" sizes="32x32" type="image/png"/>   
+</head>
+<body>
+    <div id="content">
+        <form action="{{url_for('sendemail')}}" method="POST">
+            <fieldset>
+                <legend><center>Contact Form</center><br> <center>Fill in this form to contact the site owners</center></legend>
+                <div>
+                    <input type="text" name="name" placeholder="Name"/>
+                </div>
+                <div>
+                    <input type="text" name="email" placeholder="E-Mail"/>
+                </div>
+                <div>
+                    <input type="text" name="subject" placeholder="Subject"/>
+                </div>
+                <div>
+                    <div class="small">Please enter the message you want to send</div>
+                    <textarea name="msg" placeholder="Message"></textarea>
+                </div>    
+                <input type="submit" name="submit" value="Send"/>
+            </fieldset>    
+        </form>
+    </div>
+</body>
+</html>
