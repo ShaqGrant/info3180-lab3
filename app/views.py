@@ -21,8 +21,8 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/send', method = ['POST'])
-def sendemail():
+@app.route('/contact', method = ['POST'])
+def contact():
     username = 'shaq.grant.95@gmail.com'
     password = 'ysaervecmejltckw'
 
@@ -50,7 +50,7 @@ def sendemail():
     server.login(username,password)
     server.sendmail(fromemail,toemail,fromsubject,messagetosend)
     server.quit()
-    return render_template('email.html', time=time_info())
+    return render_template('contact.html', time=time_info())
 
 def time_info():
   now = time.strftime("%a %d %b %Y")
