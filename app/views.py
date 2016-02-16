@@ -24,34 +24,39 @@ def home():
 @app.route('/contact', methods= ['POST', 'GET'])
 def contact():
   if request.method=='POST':
-    username = 'shaq.grant.95@gmail.com'
-    password = 'ysaervecmejltckw'
-
     fromname = request.form['name']
     fromemail = request.form['email']
     fromsubject = request.form['subject']
     msg = request.form['msg']
+    sendemail(fromname, fromaddr, subject, msg)
+    return render_template('contact.html')
+
     toemail = username
-    message = """From: {} <{}>
+
+def sendemail (fromname,fromemail,fromsubject,msg):
+  message = """From: {} <{}>
     To: {} <{}>
     Subject: {}
     {}
     """
+  username = 'shaq.grant.95@gmail.com'
+  password = 'ysaervecmejltckw'
+  toname = 'You'
+  toaddr = 'shaq.grant.95@gmail.com'
+  messagetosend = message.format(
+   fromname,
+   fromaddr,
+   toname,
+   toaddr,
+   subject,
+   msg)
 
-    messagetosend = message.format(
-     fromname,
-     fromaddr,
-     toname,
-     toaddr,
-     subject,
-     msg)
+  server = smtplib.SMTP('smtp.gmail.com:587')
+  server.starttls()
+  server.login(username,password)
+  server.sendmail(fromemail,toemail,fromsubject,messagetosend)
+  server.quit()
 
-    server = smtplib.SMTP('smtp.gmail.com:587')
-    server.starttls()
-    server.login(username,password)
-    server.sendmail(fromemail,toemail,fromsubject,messagetosend)
-    server.quit()
-    return render_template('contact.html')
 
 def time_info():
   now = time.strftime("%a %d %b %Y")
