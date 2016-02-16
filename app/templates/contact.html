@@ -1,11 +1,8 @@
-<!doctype html>
-<html>
-<head>
-    <title>Email</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/form.css"/>
-	<link rel="icon" href="/static/img/7.png" sizes="32x32" type="image/png"/>   
-</head>
-<body>
+
+{% extends "base.html" %}
+{% block js %}
+{% endblock %}
+  {% block main %}
     <div id="content">
         <form action="{{url_for('sendemail')}}" method="POST">
             <fieldset>
@@ -22,10 +19,9 @@
                 <div>
                     <div class="small">Please enter the message you want to send</div>
                     <textarea name="msg" placeholder="Message"></textarea>
-                </div>    
+                </div>
                 <input type="submit" name="submit" value="Send"/>
-            </fieldset>    
+            </fieldset>
         </form>
     </div>
-</body>
-</html>
+{% block main %}
