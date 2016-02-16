@@ -21,8 +21,9 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/contact', method = ['POST'])
+@app.route('/contact', methods= ['POST', 'GET'])
 def contact():
+  if request.method=='POST':
     username = 'shaq.grant.95@gmail.com'
     password = 'ysaervecmejltckw'
 
@@ -38,19 +39,19 @@ def contact():
     """
 
     messagetosend = message.format(
-                              fromname,
-                              fromemail,
-                              "Email Form",
-                              toemail,
-                              fromsubject,
-                              msg)
+     fromname,
+     fromaddr,
+     toname,
+     toaddr,
+     subject,
+     msg)
 
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
     server.login(username,password)
     server.sendmail(fromemail,toemail,fromsubject,messagetosend)
     server.quit()
-    return render_template('contact.html', time=time_info())
+    return render_template('contact.html')
 
 def time_info():
   now = time.strftime("%a %d %b %Y")
