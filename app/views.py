@@ -9,7 +9,7 @@ This file creates your application.
 from app import app
 from flask import render_template, request, redirect, url_for
 import smtplib
-from .forms import form
+
 
 
 ###
