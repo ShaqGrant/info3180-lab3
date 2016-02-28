@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/profile.css">
+{% endblock %}
+{% block main %}
+    <div id="profile-pic">
+        <img id="picture" src="https://avatars0.githubusercontent.com/u/14843180?v=3&s=460">
+    </div>
+    <div class="container">
+  <h2>User Profile</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>John Brown</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="date">The date is {{ myvar }}</td>
+      </tr>
+      <tr>
+        <td>Username: morphguy</td>
+      </tr>
+      <tr class="info">
+        <td>ID: 600032234242</td>
+      </tr>
+    <tr class="info">
+        <td>Sex: Male</td>
+      </tr>
+    <tr class="info">
+        <td>Age: 10</td>
+      </tr>
+    <tr class="info">
+        <td>Hightest Score: 120</td>
+      </tr>
+    <tr class="info">
+        <td>TDollars: $200</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+
+      #picture{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        margin: 26px;
+      }
+
+      #date{
+            color: #ADD8E6;
+      }
+
+      li{
+          border-bottom: solid thin black;
+      }
+      table {
+          position: relative;
+          left: 150px;
+          border: solid black thin;
+          width: 300px;
+          padding: 300px;
+
+
+      }
+      td, th{
+          padding: 15px;
+      }
+      td{
+          border-bottom: solid #a2dec7 thin;
+      }
+      th{
+          background-color: #309596;
+          border-bottom: solid thick black;
+      }
+      h2{
+          position: relative;
+          left: 150px;
+      }
+      tr:last-child td{
+          border-bottom: solid thin black;
+
+      }
