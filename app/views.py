@@ -8,8 +8,6 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for
-import smtplib
-
 
 
 ###
@@ -20,48 +18,6 @@ import smtplib
 def home():
     """Render website's home page."""
     return render_template('home.html')
-
-
-@app.route('/contact', methods= ['POST', 'GET'])
-def contact():
-  if request.method=='POST':
-    fromname = request.form['name']
-    fromemail = request.form['email']
-    fromsubject = request.form['subject']
-    msg = request.form['msg']
-    sendemail(fromname, fromaddr, subject, msg)
-    return render_template('contact.html')
-
-    toemail = username
-
-def sendemail (fromname,fromemail,fromsubject,msg):
-  message = """From: {} <{}>
-    To: {} <{}>
-    Subject: {}
-    {}
-    """
-  username = 'shaq.grant.95@gmail.com'
-  password = 'ysaervecmejltckw'
-  toname = 'You'
-  toaddr = 'shaq.grant.95@gmail.com'
-  messagetosend = message.format(
-   fromname,
-   fromaddr,
-   toname,
-   toaddr,
-   subject,
-   msg)
-
-  server = smtplib.SMTP('smtp.gmail.com:587')
-  server.starttls()
-  server.login(username,password)
-  server.sendmail(fromemail,toemail,fromsubject,messagetosend)
-  server.quit()
-
-
-def time_info():
-  now = time.strftime("%a %d %b %Y")
-  return now
 
 
 @app.route('/about/')
@@ -99,4 +55,4 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(debug=True,host="0.0.0.0",port="8080")
+    app.run(debug=True,host="0.0.0.0",port="8888")
