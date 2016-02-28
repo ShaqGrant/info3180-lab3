@@ -19,7 +19,7 @@ def sendemail(fromaddr,fromname,subject,msg):
 
     # Credentials (if needed)
     username = 'shaq.grant.95@gmail.com'
-    password = 'adgjlxvyynmioopl'
+    password = 'ndlqgjwascshxkeu'
 
     # The actual mail send
     server = smtplib.SMTP('smtp.gmail.com:587')
